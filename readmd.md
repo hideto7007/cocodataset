@@ -1,8 +1,36 @@
 ## cocodataset作成ツール
 
 ### 事前準備
- - train, val⇒画像
- - train_annotations, val_annotations⇒画像のアノテーション
+ - dataset/<project_name>のディレクトリ作成
+ - 作成したディレクトリ内に以下のデータを格納
+   - train, val⇒画像
+   - train_annotations, val_annotations⇒画像のアノテーション
+
+
+ディレクトリ階層  
+```
+datasets/  
+   -coco/  
+        -train/  # 訓練画像
+            -000000000001.jpg  
+            -000000000002.jpg  
+            -000000000003.jpg  
+        -val/    # 検証画像
+            -000000000004.jpg  
+            -000000000005.jpg  
+            -000000000006.jpg   
+        -test/   # 評価画像
+            -000000000004.jpg  
+            -000000000005.jpg  
+            -000000000006.jpg   
+        -annotations  
+            -instances_train.json  
+            -instances_val.json 
+            -instances_test.json
+
+```  
+
+※test_dataがある場合別で作成する
 
 ### valが存在しない場合
  - train_val_split.shを実行してtrainの1割をvalにする

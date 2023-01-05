@@ -222,13 +222,15 @@ def make_image_json_combi(category_map, categories, image_dir, annot_dir, images
             category = label['category']
             category_id = category_map[category]
                     
-            # 物体1つ分のアノテーション情報を辞書にまとめる
+            # 物体1つ分のアノテーション情報を辞書にまとめる 'ignore': 0 # 一旦入れない
             annot_dict = {
                 'image_id': image_id,
                 'bbox': [x1, y1, box_width, box_height],
                 'category_id': category_id,
                 'id': annot_id,
-                'iscrowd': 0
+                'iscrowd': 0,
+                'segmentation': [],
+                "area": (x2 - x1) * (y2 - y1)
             }
             
             # 完成した物体1つ分の情報をannotationsリストへ追加

@@ -35,11 +35,6 @@ def file_move(path):
         shutil.move(path+"/"+dir_list[1]+"/"+jsons, path+"/"+dir_list[3]+"/"+val_json)
 
 
-for dir_check in os.listdir(data_path):
-    if "val" in dir_check:
-        if 0 == len(os.listdir(data_path + "/" + dir_check)):
-            file_move(data_path)
-        else:
-            print("既に指定したディレクトリ内にファイル存在する")
+file_move(data_path)
             
 
